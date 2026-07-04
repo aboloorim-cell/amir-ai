@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>امیر AI</title>
+
+    <!-- استایل -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111111">
+
+</head>
+
+<body>
+
+    <!-- منوی سمت چپ -->
+    <div class="sidebar">
+
+        <div class="logo">
+            🤖 امیر AI
+        </div>
+
+        <button class="new-chat" onclick="newChat()">
+            + چت جدید
+        </button>
+
+        <div class="recent-title">
+            📚 موارد اخیر
+        </div>
+
+        <div id="chatList"></div>
+
+    </div>
+
+    <!-- بخش اصلی -->
+    <div class="main">
+
+        <div class="header">
+            امیر AI
+        </div>
+
+        <div id="chat">
+
+            <div class="bot">
+                سلام 😊<br>
+                من امیر AI هستم.
+            </div>
+
+        </div>
+
+        <div class="bottom">
+
+            <input
+                id="message"
+                type="text"
+                placeholder="پیام خود را بنویسید..."
+                onkeydown="if(event.key==='Enter') sendMessage()">
+
+            <button onclick="sendMessage()">
+                ارسال
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- اسکریپت اصلی -->
+    <script src="app.js"></script>
+
+    <!-- Service Worker (برای نصب اپ) -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
+
+</body>
+</html>
